@@ -19,22 +19,26 @@ public class PersonaServiceImp implements PersonaService{
 
     @Override
     public Persona listarId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repositorio.findById(id);
     }
 
     @Override
     public Persona add(Persona p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repositorio.save(p);
     }
 
     @Override
     public Persona edit(Persona p) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return repositorio.save(p);    
     }
 
     @Override
     public Persona delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Persona p=repositorio.findById(id);
+        if(p!=null){
+            repositorio.delete(p);
+        }
+        return p;
     }
     
 }
